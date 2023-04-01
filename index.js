@@ -33,9 +33,9 @@ const SetDesciptionByID=async(ID)=>{
 
 }
 
-const SetAttackType=async(ID)=>{
+const SetAttackType=async(url)=>{
     try{
-        const response = await fetch(ID);
+        const response = await fetch(url);
         const result = await response.json();
 
         
@@ -45,7 +45,7 @@ const SetAttackType=async(ID)=>{
        
         attackName.innerHTML = result.names.find((entry) => entry.language.name == language).name;
 
-        console.log(result.type.name);
+        console.log(result);
 
         let Type = './assets/' + result.type.name + '.png';
 
@@ -84,7 +84,8 @@ const ConfigCardByID=async(ID)=>{
         pokeSprite.src = result.sprites.other.dream_world.front_default;
         pokeSprite.alt = result.name;
 
-        
+        let attack = Math.floor(Math.random() * (result.moves.length));
+
         SetAttackType(result.moves[attack].move.url)
 
     }
