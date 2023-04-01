@@ -84,9 +84,8 @@ const ConfigCardByID=async(ID)=>{
         pokeSprite.src = result.sprites.other.dream_world.front_default;
         pokeSprite.alt = result.name;
 
-        let attack = Math.floor(Math.random() * result.moves.length)
+        
         SetAttackType(result.moves[attack].move.url)
-        console.log(attack)
 
     }
     catch(error){
@@ -96,5 +95,5 @@ const ConfigCardByID=async(ID)=>{
 }
 
 
-
-  ConfigCardByID(600);
+    let PokeNum = Math.floor(Math.random() * 600)
+    ConfigCardByID(PokeNum);
